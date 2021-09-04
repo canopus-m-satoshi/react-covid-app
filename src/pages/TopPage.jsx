@@ -5,13 +5,15 @@ import Selector from '../components/Selector';
 import Title from '../components/Title';
 
 const TopPage = (props) => {
+  const { countriesJson, setCountry, getCountryData } = props;
+
   return (
     <div>
       <Title />
       <Selector
-        countries={props.countriesJson}
-        setCountry={props.setCountry}
-        getCountryData={props.getCountryData}
+        countriesJson={countriesJson}
+        setCountry={setCountry}
+        getCountryData={getCountryData}
       />
       <Results />
     </div>
