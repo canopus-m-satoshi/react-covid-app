@@ -8,10 +8,20 @@ import './App.css';
 
 function App() {
   const [country, setCountry] = useState('');
+  const [countryData, setCountryData] = useState({
+    date: '',
+    newConfirmed: '',
+    totalConfirmed: '',
+    newRecovered: '',
+    totalRecovered: '',
+  });
   const getCountryData = () => {
     axios
       .get(`https://api.covid19api.com/country/${country}`)
-      .then((res) => console.log(res));
+      .then((res) => console.log(res.data[res.data.length - 1]))
+      .catch((err) => {
+        console.log('err:', err);
+      });
   };
 
   return (
